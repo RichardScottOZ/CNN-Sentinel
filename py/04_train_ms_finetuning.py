@@ -76,7 +76,7 @@ top_model = GlobalAveragePooling2D()(top_model)
 
 # let's add a fully-connected layer
 if use_vgg:
-    # only in VGG19 a fully connected nn is added for classfication
+    # only in VGG19 a fully connected nn is added for classification
     # DenseNet tends to overfitting if using additionally dense layers
     top_model = Dense(2048, activation='relu')(top_model)
     top_model = Dense(2048, activation='relu')(top_model)
@@ -153,7 +153,7 @@ for i, layer in enumerate(model.layers):
 print(names)
 
 if use_vgg:
-    # we will freaze the first convolutional block and train all
+    # we will freeze the first convolutional block and train all
     # remaining blocks, including top layers.
     for layer in model.layers[:2]:
         layer.trainable = True
