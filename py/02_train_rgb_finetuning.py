@@ -150,7 +150,7 @@ for i, layer in enumerate(model.layers):
 print(names)
 
 if use_vgg:
-    # we will freaze the first convolutional block and train all
+    # we will freeze the first convolutional block and train all
     # remaining blocks, including top layers.
     for layer in model.layers[:4]:
         layer.trainable = False
